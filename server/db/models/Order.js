@@ -7,6 +7,7 @@ const OrderSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    //Parent referencing of customer, product and supplier
     customer: {
       type: mongoose.Schema.ObjectId,
       ref: 'Customer',
@@ -30,6 +31,7 @@ const OrderSchema = new mongoose.Schema(
   }
 );
 
+//For all queries with the word find keyword in the Order model populate the following attributes
 OrderSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'product',
@@ -42,6 +44,8 @@ OrderSchema.pre(/^find/, function (next) {
 });
 
 //Static methods to count the number of orders
+//Gets access to the productId of the product thats been ordered and on the product models
+//for the matching productId for orderQty add 1 and restock double
 OrderSchema.statics.calcTotalOrders = async function (productId) {
   const stats = await this.aggregate([
     //Select all the orders that belong to the productId thats passed as arg above
@@ -65,7 +69,8 @@ OrderSchema.statics.calcTotalOrders = async function (productId) {
 };
 
 OrderSchema.pre('save', function (next) {
-  //this points to current review
+  //this points to current order
+  //calculation is carried out before product is saved
   this.constructor.calcTotalOrders(this.product);
   next();
 });

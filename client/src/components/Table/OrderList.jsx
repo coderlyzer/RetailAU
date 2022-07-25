@@ -40,6 +40,7 @@ const OrderList = () => {
       <DataGrid
         className="datagrid"
         // outline="none"
+        //Fetched data allocated as value to the table
         rows={Results}
         columns={OrderColumns.concat(actionColumn)}
         pageSize={8}

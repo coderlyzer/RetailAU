@@ -10,7 +10,7 @@ import CheckroomOutlinedIcon from '@mui/icons-material/CheckroomOutlined';
 const Widget = ({ type }) => {
   let data;
 
-  //temporary
+  //temporary - data from axios fetch needed
   const amount = 100;
   const diff = 20;
 
