@@ -1,0 +1,18 @@
+.datatable {
+  height: 600px;
+  padding: 20px;
+
+  .cellAction {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .viewButton {
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: #327e93;
+      border: 1px dotted #327e93;
+      cursor: pointer;
+    }
+  }
+}

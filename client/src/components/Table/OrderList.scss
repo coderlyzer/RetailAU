@@ -1,0 +1,25 @@
+.ordertable {
+  height: 450px;
+  padding: 20px;
+
+  .cellAction {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .Add_to_basket {
+      padding: 5px;
+      border-radius: 5px;
+      color: green;
+      background-color: rgba(0, 128, 0, 0.099);
+      cursor: pointer;
+    }
+    .Remove_from_basket {
+      padding: 5px;
+      border-radius: 5px;
+      color: red;
+      background-color: rgba(255, 0, 0, 0.2);
+      cursor: pointer;
+    }
+  }
+}
